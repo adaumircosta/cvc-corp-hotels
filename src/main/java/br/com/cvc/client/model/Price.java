@@ -1,12 +1,14 @@
 package br.com.cvc.client.model;
 
-import lombok.Getter;
-import lombok.Setter;
+import java.io.Serializable;
 
-@Getter
-@Setter
-public class Price {
+import lombok.Data;
+
+@Data
+public class Price implements Serializable{
 	
+	
+	private static final long serialVersionUID = 1L;
 	private Double adult;
 	private Double child;
 }
