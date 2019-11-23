@@ -2,11 +2,9 @@ package br.com.cvc.client.model;
 
 import java.util.List;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
-@Getter
-@Setter
+@Data
 public class Hotel {
 	
 	private long id;
