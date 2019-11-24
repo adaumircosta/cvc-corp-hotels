@@ -38,12 +38,12 @@ public class BrokerService {
 
 	}
 	
-	public List<Hotel> HotelsPriceByIdHotel(long idHotel) {
+	public Hotel HotelsPriceByIdHotel(long idHotel) {
 		String caminho = url + "avail/"+ Long.toString(idHotel);
-		ResponseEntity<List<Hotel>> responseEntity;
+		ResponseEntity<Hotel> responseEntity;
 		try {
 			responseEntity = restTemplate.exchange(url, HttpMethod.GET, null,
-					new ParameterizedTypeReference<List<Hotel>>() {
+					new ParameterizedTypeReference<Hotel>() {
 					});
 		} catch (RestClientException e) {
 			throw new HotelsException(message.get("error.get.hotels"));
