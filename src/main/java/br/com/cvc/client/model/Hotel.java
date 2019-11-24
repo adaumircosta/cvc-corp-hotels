@@ -10,6 +10,7 @@ public class Hotel {
 	private long id;
 	private String name;
 	private Integer cityCode;
+	private String cityName;
 	List<Rooms> rooms;
 
 }
