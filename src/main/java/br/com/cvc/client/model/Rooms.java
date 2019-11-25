@@ -4,8 +4,8 @@ import lombok.Data;
 
 @Data
 public class Rooms {
-	
-	private long roomId;
+
+	private long roomID;
 	private String categoryName;
 	private Price price;
 
