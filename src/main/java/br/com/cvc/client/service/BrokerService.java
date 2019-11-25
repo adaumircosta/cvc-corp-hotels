@@ -25,30 +25,30 @@ public class BrokerService {
 	private MessagesService message;
 
 	public List<Hotel> HotelsPriceByIdCity(long idCity) {
-		String caminho = url + Long.toString(idCity);
-		ResponseEntity<List<Hotel>> responseEntity;
+		String caminho = url + "avail/" + Long.toString(idCity);
+		
 		try {
-			responseEntity = restTemplate.exchange(url, HttpMethod.GET, null,
-					new ParameterizedTypeReference<List<Hotel>>() {
-					});
+			ResponseEntity<List<Hotel>> responseEntity = restTemplate.exchange(caminho, HttpMethod.GET, null,
+					new ParameterizedTypeReference<List<Hotel>>() {});
+			return responseEntity.getBody();
 		} catch (RestClientException e) {
 			throw new HotelsException(message.get("error.get.hotels"));
 		}
-		return responseEntity.getBody();
 
 	}
-	
+
 	public Hotel HotelsPriceByIdHotel(long idHotel) {
-		String caminho = url + "avail/"+ Long.toString(idHotel);
-		ResponseEntity<Hotel> responseEntity;
+		String caminho = url + Long.toString(idHotel);
+		
 		try {
-			responseEntity = restTemplate.exchange(url, HttpMethod.GET, null,
-					new ParameterizedTypeReference<Hotel>() {
+			ResponseEntity<List<Hotel>> responseEntity = restTemplate.exchange(caminho, HttpMethod.GET, null,
+					new ParameterizedTypeReference<List<Hotel>>() {
 					});
+			return responseEntity.getBody().get(0);
 		} catch (RestClientException e) {
 			throw new HotelsException(message.get("error.get.hotels"));
 		}
-		return responseEntity.getBody();
+		
 
 	}
 
