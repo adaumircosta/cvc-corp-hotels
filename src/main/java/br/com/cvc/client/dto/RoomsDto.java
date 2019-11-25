@@ -10,8 +10,8 @@ public class RoomsDto implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
 	
-	private long roomId;
+	private long roomID;
 	private String categoryName;
 	private Double totalPrice;
-	private PriceDetailDto priceDetailDto;
+	private PriceDetail priceDetail;
 }
