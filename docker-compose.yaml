@@ -1,0 +1,8 @@
+version: '3.0'
+services:
+
+ backend:
+   image: registry.gitlab.com/adaumir-testes/cvc-corp/hotels-cvc:0.0.1
+   container_name: hotels-cvc
+   ports:
+     - 8085:8085
