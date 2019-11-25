@@ -30,12 +30,14 @@ public class HotelServiceImpl implements HotelService {
 
 	@Override
 	public List<HotelDto> StayByCity(Travel travel) {
-		List<HotelDto> hotelDtos = new ArrayList<>();
-		List<Hotel> hotels = brokerApi.HotelsPriceByIdCity(travel.getCode().intValue());
+		
 		Long qtdDays = ChronoUnit.DAYS.between(travel.getCheckin(), travel.getCheckout());
 		if (qtdDays < 0) {
 			throw new HotelsException(message.get("datafim.menorquea.datainicial"));
 		}
+		
+		List<HotelDto> hotelDtos = new ArrayList<>();
+		List<Hotel> hotels = brokerApi.HotelsPriceByIdCity(travel.getCode().intValue());
 
 		hotels.forEach(hotel -> {
 			hotelDtos.add(calculateStay(hotel, qtdDays.intValue(), travel.getQuantityByAdult(), travel.getQuantityByChild()));
